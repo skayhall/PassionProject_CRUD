@@ -1,0 +1,42 @@
+﻿@model List<PPWebApp.Models.Furniture>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List of Furniture</h2>
+<div class="navbar">
+    <a class="navlink" href="/Furniture/New">Add New Furniture Product</a>
+</div>
+<div class="tilecontainer">
+    @{
+        foreach (var Furniture in Model)
+        {
+            <div class="listitem">
+                <div class="itemimage">
+                    @{
+                        if (Furniture.HasPic == 1)
+                        {
+                            <img src="../../Content/Furniture/@(Furniture.Id).@(Furniture.PicExtension)" alt="Image of @Furniture.Name" />
+                        }
+                    }
+                </div>
+                <div class="itemdetails">
+                    <div class="listcat"><a href="/Furniture/Show/@Furniture.Id">@Furniture.Name</a></div>
+                    <div class="listcat">Price:<span>@Furniture.Price</span></div>
+                    <div class="listcat">Name:<span>@Furniture.Name</span></div>
+                    <div class="listcat">Height:<span>@Furniture.Height</span></div>
+                    <div class="listcat">Width:<span>@Furniture.Width</span></div>
+                    <div class="listcat">Depth:<span>@Furniture.Depth</span></div>
+                    <div class="listcat">Weight:<span>@(Furniture.Weight)kg</span></div>
+                    <div class="listcat">Color:<span>@Furniture.Color</span></div>
+                    <div class="listcat">Description<span>@Furniture.Description</span></div>
+                    <br/><br/>
+                    <span class="cta"><a href="/Furniture/Update/@Furniture.Id">Update Product</a></span>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        }
+    }
+    <div style="clear:both;"></div>
+</div>

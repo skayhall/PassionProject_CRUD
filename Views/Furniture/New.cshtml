@@ -1,0 +1,47 @@
+﻿@model List<PPWebApp.Models.Category>
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add Furniture</h2>
+<div class="navbar">
+    <a class="navlink" href="/Furniture/List">Back to Furniture List</a>
+</div>
+<form method="POST" action="/Furniture/Add">
+    <!-- TODO: format this nicely -->
+    <div class="inpfield"><span>Name:</span><input id="FurnitureName" type="text" name="FurnitureName" /></div>
+    <div class="inpfield">
+        <span>Category:</span>
+        <select id="CategoryID" type="text" name="CategoryID">
+            @{
+                //A rendering loop for presenting a list of categories
+                //The furniture product should be in one of these species
+                foreach (var category in Model)
+                {
+                    <option value="@category.Id">@category.Name</option>
+
+                }
+            }
+        </select>
+    </div>
+    <div class="inpfield"><span>Price(CAD):</span><input id="FurniturePrice" type="text" name="FurniturePrice" /></div>
+
+    <div class="inpfield"><span>Height</span><input id="FurnitureHeight" type="text" name="FurnitureHeight" /></div>
+
+    <div class="inpfield"><span>Width</span><input id="FurnitureWidth" type="text" name="FurnitureWidth" /></div>
+
+    <div class="inpfield"><span>Depth</span><input id="FurnitureDepth" type="text" name="FurnitureDepth" /></div>
+
+    <div class="inpfield"><span>Weight (kg):</span><input id="FurnitureWeight" type="text" name="FurnitureWeight" /></div>
+
+    <div class="inpfield"><span>Color:</span><input id="FurnitureColor" type="text" name="FurnitureColor" /></div>
+
+    <div class="inpfield">
+        Description:
+        <textarea id="FurntureDescription" name="FurnitureDescription">
+        </textarea>
+    </div>
+    <div class="inpfield">
+        <input type="submit" value="Add Furniture Product">
+    </div>
+</form>

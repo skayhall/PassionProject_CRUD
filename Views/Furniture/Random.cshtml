@@ -1,0 +1,18 @@
+﻿
+<!--
+specifies the type of the model for the view
+-->
+@model PPWebApp.Models.Furniture 
+    @{
+        ViewBag.Title = "Random";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+
+    <!--
+    every view (this) has a property that gives us access to the model that we pass to it 
+    in the controller
+    -renders name of view below
+    -->
+    <h2>@Model.Name</h2>
+
