@@ -1,17 +1,14 @@
-﻿@{
-    Layout = null;
+﻿@using PPWebApp.Models
+@model List<PPWebApp.Models.Category>
+    
+
+@{
+
+foreach (var category in Model) {
+
+        @category.Name
+
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
-    <div>
-    
-    </div>
-</body>
-</html>
+}

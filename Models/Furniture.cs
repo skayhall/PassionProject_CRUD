@@ -61,13 +61,6 @@ namespace PPWebApp.Models
         public string Color { get; set; }
 
 
-        //haspic can be 0 or 1 indicating (1) => has picture (0)=> no picture
-        //Content/Pets/{id}.{PicExtension}
-        public int HasPic { get; set; }
-        //.jpg, .gif. .png, .jpeg
-        public string PicExtension { get; set; }
-
-
         //Represents the many in (one category to many furniture products)        
         public int CategoryID { get; set; }
         [ForeignKey("CategoryID")]

@@ -1,47 +1,50 @@
-﻿@model List<PPWebApp.Models.Category>
+﻿<!--Tell it where to pull the information from-->
+<!--Pull the list controller from the PPWebApp. Go to the Model and select the
+category-->
+@model  List<PPWebApp.Models.Category>
+
 @{
+<!--matches with the "Add" controller-->
     ViewBag.Title = "Add";
 }
 
-<h2>Add Furniture</h2>
-<div class="navbar">
-    <a class="navlink" href="/Furniture/List">Back to Furniture List</a>
-</div>
-<form method="POST" action="/Furniture/Add">
-    <!-- TODO: format this nicely -->
-    <div class="inpfield"><span>Name:</span><input id="FurnitureName" type="text" name="FurnitureName" /></div>
-    <div class="inpfield">
-        <span>Category:</span>
-        <select id="CategoryID" type="text" name="CategoryID">
-            @{
-                //A rendering loop for presenting a list of categories
-                //The furniture product should be in one of these species
-                foreach (var category in Model)
-                {
-                    <option value="@category.Id">@category.Name</option>
 
-                }
+    <h2>Add Furniture</h2>
+
+ 
+<form method="POST" action="/Furniture/New">
+    <select name="CategoryID" id="furcat">
+        @{
+            //for each category in the model display the name
+            foreach (var category in Model)
+            {
+
+                <option value="@category.Id">@category.Name</option>
+
             }
-        </select>
-    </div>
-    <div class="inpfield"><span>Price(CAD):</span><input id="FurniturePrice" type="text" name="FurniturePrice" /></div>
 
-    <div class="inpfield"><span>Height</span><input id="FurnitureHeight" type="text" name="FurnitureHeight" /></div>
+        }
 
-    <div class="inpfield"><span>Width</span><input id="FurnitureWidth" type="text" name="FurnitureWidth" /></div>
+    </select>
 
-    <div class="inpfield"><span>Depth</span><input id="FurnitureDepth" type="text" name="FurnitureDepth" /></div>
+    <div>Name:<input type="text" name="furname" id="furname"/></div>
+    <div>Price: <input type="text" name="furprice" id="furprice"/></div>
+    <div>Color:<input type="text" name="furcolor" id="furcolor"/></div>
+    <div>Height:<input type="text" name="furheight" id="furheight"/></div>
+    <div>Width:<input type="text" name="furwidth" id="furwidth"/></div>
+    <div>Depth:<input type="text" name="furdepth" id="furdepth"/></div>
+    <div>Weight:<input type="text" name="furweight" id="furweight"/></div>
+    <div>Description:<input type="text" name="furdescription" id="furdescription"/></div>
 
-    <div class="inpfield"><span>Weight (kg):</span><input id="FurnitureWeight" type="text" name="FurnitureWeight" /></div>
-
-    <div class="inpfield"><span>Color:</span><input id="FurnitureColor" type="text" name="FurnitureColor" /></div>
-
-    <div class="inpfield">
-        Description:
-        <textarea id="FurntureDescription" name="FurnitureDescription">
-        </textarea>
-    </div>
-    <div class="inpfield">
-        <input type="submit" value="Add Furniture Product">
-    </div>
+    <div><input type="submit" value="Add Furniture"/></div>
 </form>
+
+<a href="/Furniture/List">Back to Furniture List</a>
+
+  
+
+
+
+
+
+

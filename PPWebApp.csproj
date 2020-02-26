@@ -135,10 +135,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002252340142_haspic to null.cs" />
+    <Compile Include="Migrations\202002252340142_haspic to null.designer.cs">
+      <DependentUpon>202002252340142_haspic to null.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002252352128_deleting pic.cs" />
+    <Compile Include="Migrations\202002252352128_deleting pic.designer.cs">
+      <DependentUpon>202002252352128_deleting pic.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\Furniture.cs" />
+    <Compile Include="Models\ViewModel\ViewCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -210,6 +219,14 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202002252340142_haspic to null.resx">
+      <DependentUpon>202002252340142_haspic to null.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002252352128_deleting pic.resx">
+      <DependentUpon>202002252352128_deleting pic.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
