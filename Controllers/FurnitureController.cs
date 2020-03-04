@@ -10,7 +10,7 @@ using System.Web;
 using System.Web.Mvc;
 using PPWebApp.Data;
 using PPWebApp.Models;
-//using PPWebApp.Models.ViewModels;
+using PPWebApp.Models.ViewModels;
 using System.Diagnostics;
 using System.IO;
 
@@ -67,11 +67,6 @@ namespace PPWebApp.Controllers
         public ActionResult New()
         {
             //STEP 1: PUSH DATA!
-            //What data does the Add.cshtml page need to display the interface?
-            //A list of species to choose for a pet
-
-            //alternative way of writing SQL -- will learn more about this week 4
-            //List<Species> Species = db.Species.ToList();
 
             List<Category> category = db.Category.SqlQuery("SELECT * FROM Categories").ToList();
 
@@ -92,6 +87,74 @@ namespace PPWebApp.Controllers
 
         }
 
+
+
+
+        public ActionResult Show(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+        
+            Furniture Furniture = db.Furniture.SqlQuery("select * from furnitures WHERE id=@id", new SqlParameter("@id", id)).FirstOrDefault();
+            if (Furniture == null)
+            {
+                return HttpNotFound();
+            }
+
+            ShowFurniture viewmodel = new ShowFurniture();
+            viewmodel.furniture = Furniture;
+
+            return View(viewmodel);
+        }
+
+
+
+
+
+
+        public ActionResult Update(int id)
+        {
+            //info about the furniture item
+            Furniture selectedfurniture = db.Furniture.SqlQuery("select * from furnitures WHERE id = @id", new SqlParameter("@id", id)).FirstOrDefault();
+            List<Category> category = db.Category.SqlQuery("SELECT * FROM Categories").ToList();
+
+
+            UpdateFurniture UpdateFurnitureViewModel = new UpdateFurniture();
+            UpdateFurnitureViewModel.Furniture = selectedfurniture;
+            UpdateFurnitureViewModel.Category = category;
+
+            return View(UpdateFurnitureViewModel);
+        }
+        
+
+
+        [HttpPost]
+        public ActionResult Update(int id, string furname, int furprice, string furdescription, int furheight, int furwidth, int furdepth, int furweight, string furcolor)
+        {
+            
+            string query = "update furnitures set Name=@furname, Category=@CategoryID, Price=@furprice, Description=@furdescription, Height=@furheight, Width=@furwidth, Depth=@furdepth, Weight=@furweight, color=@furcolor,  WHERE Id=@id";
+            SqlParameter[] Sqlparams = new SqlParameter[10];
+
+            Sqlparams[0] = new SqlParameter("@furname", furname); //first matches the name we give above and the second matches the id from the form
+            Sqlparams[1] = new SqlParameter("@furprice", furprice);
+            Sqlparams[2] = new SqlParameter("@furdescription", furdescription);
+            Sqlparams[3] = new SqlParameter("@furheight", furheight);
+            Sqlparams[4] = new SqlParameter("@furwidth", furwidth);
+            Sqlparams[5] = new SqlParameter("@furdepth", furdepth);
+            Sqlparams[6] = new SqlParameter("@furweight", furweight);
+            Sqlparams[7] = new SqlParameter("@furcolor", furcolor);
+            Sqlparams[8] = new SqlParameter("@id", id);
+            Sqlparams[9] = new SqlParameter("@CategoryID", id);
+
+
+
+            db.Database.ExecuteSqlCommand(query, Sqlparams);
+
+            //logic for updating the pet in the database goes here
+            return RedirectToAction("List");
+        }
 
 
 

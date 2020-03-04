@@ -1,4 +1,5 @@
-﻿@model List<PPWebApp.Models.Furniture>
+﻿@using PPWebApp.Models
+@model List<PPWebApp.Models.Furniture>
 
 
 @{
@@ -7,7 +8,11 @@
     {
         <div>@furniture.Color</div>
         @furniture.Description
-        @furniture.Name
+        <a href="/Furniture/Show/@furniture.Id">@furniture.Name</a>
+
+       // <div class="listcat"><a href="/Pet/Show/@Pet.PetID">@Pet.PetName</a></div>
+
+
     }
 
 }

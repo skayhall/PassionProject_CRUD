@@ -147,7 +147,9 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\Furniture.cs" />
-    <Compile Include="Models\ViewModel\ViewCategory.cs" />
+    <Compile Include="Models\ViewModels\ShowFurniture.cs" />
+    <Compile Include="Models\ViewModels\UpdateFurniture.cs" />
+    <Compile Include="Models\ViewModels\ViewCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -188,7 +190,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Furniture\Random.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Booking\List.cshtml" />
     <Content Include="Views\Booking\New.cshtml" />

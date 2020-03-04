@@ -1,17 +1,42 @@
-﻿@{
-    Layout = null;
+﻿@model PPWebApp.Models.ViewModels.UpdateFurniture
+
+@{
+    <!--matches with the "Add" controller-->
+    ViewBag.Title = "Update";
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
+<h2>Update Furniture</h2>
+
+
+<form method="POST" action="/Furniture/Update/@Model.Furniture.Id" enctype="multipart/form-data">
     <div>
-    
+        <span>Furniture Category: </span>
+        <select id="furcat" name="furcat">  
+            @foreach (var category in Model.Category)
+            {
+                var selected = "";
+                if (Model.Furniture.CategoryID == category.Id)
+                {
+                    selected = "selected";
+                }
+                <option value="@category.Id" @selected>@category.Name</option>
+            }
+        </select>
     </div>
-</body>
-</html>
+    
+
+
+    <div>Name:<input type="text" value="@Model.Furniture.Name" name="furname" id="furname" /></div>
+    <div>Price: <input type="text" value="@Model.Furniture.Price" name="furprice" id="furprice" /></div>
+    <div>Color:<input type="text" value="@Model.Furniture.Color" name="furcolor" id="furcolor" /></div>
+    <div>Height:<input type="text" value="@Model.Furniture.Height" name="furheight" id="furheight" /></div>
+    <div>Width:<input type="text" value="@Model.Furniture.Width" name="furwidth" id="furwidth" /></div>
+    <div>Depth:<input type="text" value="@Model.Furniture.Depth" name="furdepth" id="furdepth" /></div>
+    <div>Weight:<input type="text" value="@Model.Furniture.Weight" name="furweight" id="furweight" /></div>
+    <div>Description:<input type="text" value="@Model.Furniture.Description" name="furdescription" id="furdescription" /></div>
+
+    <div><input type="submit" value="Update Furniture" /></div>
+</form>
+
+<a href="/Furniture/List">Back to Furniture List</a>

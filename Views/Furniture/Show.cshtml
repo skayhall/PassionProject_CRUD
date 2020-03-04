@@ -1,17 +1,26 @@
-﻿@{
-    Layout = null;
+﻿@model PPWebApp.Models.ViewModels.ShowFurniture
+
+@{
+    ViewBag.Title = "Show";
 }
 
-<!DOCTYPE html>
+<h2>Show Pet</h2>
+<div class="navbar">
+    <a class="navlink" href="/Furniture/List">Back to List</a>
+    <a class="" href="/Furniture/Update/@Model.furniture.Id">Update</a>
+</div>
+<div>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
-    <div>
-    
+    <div class="col2">
+        <div>Name : @Model.furniture.Name</div>
+        <div>Weight : @(Model.furniture.Weight)kg</div>
+        <div>
+            Notes :
+            <div class="">
+                @Model.furniture.Description
+            </div>
+        </div>
+
     </div>
-</body>
-</html>
+    
+</div>
