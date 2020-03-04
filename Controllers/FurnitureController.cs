@@ -74,9 +74,6 @@ namespace PPWebApp.Controllers
         }
 
 
-
-
-
         // GET: Furniture
 
         public ActionResult List()
@@ -86,8 +83,6 @@ namespace PPWebApp.Controllers
             return View(furniture);
 
         }
-
-
 
 
         public ActionResult Show(int? id)
@@ -108,11 +103,6 @@ namespace PPWebApp.Controllers
 
             return View(viewmodel);
         }
-
-
-
-
-
 
         public ActionResult Update(int id)
         {
@@ -153,6 +143,25 @@ namespace PPWebApp.Controllers
             db.Database.ExecuteSqlCommand(query, Sqlparams);
 
             //logic for updating the pet in the database goes here
+            return RedirectToAction("List");
+        }
+
+        public ActionResult DeleteConfirm(int id)
+        {
+            string query = "SELECT * FROM furnitures WHERE id = @id";
+            SqlParameter param = new SqlParameter("@id", id);
+            Furniture selectedfurniture = db.Furniture.SqlQuery(query, param).FirstOrDefault();
+
+            return View(selectedfurniture);
+        }
+        
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            string query = "DELETE FROM furnitures WHERE id = @id";
+            SqlParameter param = new SqlParameter("@id", id);
+            db.Database.ExecuteSqlCommand(query, param);
+
             return RedirectToAction("List");
         }
 

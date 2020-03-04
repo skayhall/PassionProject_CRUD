@@ -4,13 +4,18 @@
 
 @{
 
+    <div class="">
+        <a class="" href="/Furniture/New">Add New Item</a><br/><br/>
+    </div>
+
     foreach (var furniture in Model)
     {
-        <div>@furniture.Color</div>
-        @furniture.Description
         <a href="/Furniture/Show/@furniture.Id">@furniture.Name</a>
+        <div>@furniture.Color</div>
+        <div>@furniture.Description</div>
 
-       // <div class="listcat"><a href="/Pet/Show/@Pet.PetID">@Pet.PetName</a></div>
+
+        // <div class="listcat"><a href="/Pet/Show/@Pet.PetID">@Pet.PetName</a></div>
 
 
     }
