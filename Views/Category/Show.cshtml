@@ -1,17 +1,14 @@
-﻿@{
-    Layout = null;
+﻿@model PPWebApp.Models.Category
+@{
+    ViewBag.Title = "Show";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
-    <div>
-    
-    </div>
-</body>
-</html>
+<h2>Show Category</h2>
+<div class="">
+    <a class="" href="/Category/List">Back to List</a>
+    <a class="" href="/Category/Update/@Model.Id">Update</a>
+    <a class="" href="/Category/DeleteConfirm/@Model.Id">Delete</a>
+</div>
+<div>
+    <span>Category Name : </span>@Model.Name
+</div>

@@ -190,7 +190,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Category\DeleteConfirm.cshtml" />
     <Content Include="Views\Booking\List.cshtml" />
     <Content Include="Views\Booking\New.cshtml" />
     <Content Include="Views\Booking\Show.cshtml" />
