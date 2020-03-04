@@ -124,7 +124,7 @@ namespace PPWebApp.Controllers
         public ActionResult Update(int id, string furname, int furprice, string furdescription, int furheight, int furwidth, int furdepth, int furweight, string furcolor)
         {
             
-            string query = "update furnitures set Name=@furname, Category=@CategoryID, Price=@furprice, Description=@furdescription, Height=@furheight, Width=@furwidth, Depth=@furdepth, Weight=@furweight, color=@furcolor,  WHERE Id=@id";
+            string query = "update furnitures set Name=@furname, Category=@CategoryID, Price=@furprice, Description=@furdescription, Height=@furheight, Width=@furwidth, Depth=@furdepth, Weight=@furweight, color=@furcolor,  WHERE id=@id";
             SqlParameter[] Sqlparams = new SqlParameter[10];
 
             Sqlparams[0] = new SqlParameter("@furname", furname); //first matches the name we give above and the second matches the id from the form

@@ -205,7 +205,6 @@
     <Content Include="Views\Furniture\Update.cshtml" />
     <Content Include="Wireframes_and_Justifications\PassionProject_Wireframes&amp;Justifications_SHall.pdf" />
     <Content Include="Views\Furniture\DeleteConfirm.cshtml" />
-    <Content Include="Views\Furniture\Delete2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

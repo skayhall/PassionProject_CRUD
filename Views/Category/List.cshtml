@@ -1,14 +1,20 @@
 ﻿@using PPWebApp.Models
 @model List<PPWebApp.Models.Category>
-    
+
 
 @{
 
-foreach (var category in Model) {
 
-        @category.Name
+    <div class="">
+        <a class="" href="/Category/New">Add New Category</a><br /><br />
+    </div>
 
-}
+    foreach (var category in Model)
+    {
+
+        <div>@category.Name</div>
+
+    }
 
 
 }

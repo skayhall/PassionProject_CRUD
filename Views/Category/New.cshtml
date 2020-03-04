@@ -1,17 +1,20 @@
-﻿@{
-    Layout = null;
+﻿@model  List<PPWebApp.Models.Category>
+
+@{
+    <!--matches with the "Add" controller-->
+    ViewBag.Title = "Add";
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
-    <div>
-    
-    </div>
-</body>
-</html>
+<h2>Add Category</h2>
+
+
+<form method="POST" action="/Category/New">
+
+    <div>Name:<input type="text" name="catname" id="catname" /></div>
+
+    <div><input type="submit" value="Add Category" /></div>
+
+</form>
+
+<a href="/Category/List">Back to Category List</a>
